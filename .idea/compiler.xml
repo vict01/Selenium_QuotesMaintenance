@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="RegressionTests" />
+        <module name="TestFramework" />
+        <module name="PageObjects" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AutomationProject" target="1.8" />
+      <module name="PageObjects" target="1.8" />
+      <module name="RegressionTests" target="1.8" />
+      <module name="TestFramework" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
