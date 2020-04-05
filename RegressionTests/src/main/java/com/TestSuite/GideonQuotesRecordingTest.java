@@ -25,7 +25,7 @@ public class GideonQuotesRecordingTest extends BaseTest {
     }
 
     @Test()
-    public void gideonQuotesRecording() {
+    public void gideonQuotesRecording() throws InterruptedException {
         quotesSourcePage.openQuotesListPage();
         int gideonListSize = quotesSourcePage.gideonQuotesList.size();
 
@@ -40,6 +40,7 @@ public class GideonQuotesRecordingTest extends BaseTest {
             phrase = strPhraseList.get(i);
             quotesMaintenance.addNewQuote(author, phrase);
         }
+        quotesMaintenance.searchQuote(author);
         assert strAuthorList.size() >= quotesMaintenance.howManyQuotesByAuthor();
     }
 
