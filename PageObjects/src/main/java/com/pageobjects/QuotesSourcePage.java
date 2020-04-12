@@ -26,7 +26,10 @@ public class QuotesSourcePage extends BasePage {
     }
 
     public String getAuthorList(int i){
-         author = gideonQuotesList.get(i).getText().substring(0,6);
+        author = gideonQuotesList.get(i).getText();
+        int index = author.indexOf(":");
+        boolean isThereLimit = index > 0;
+        author = author.substring(0, isThereLimit ? index : author.length());
         return author;
     }
 
