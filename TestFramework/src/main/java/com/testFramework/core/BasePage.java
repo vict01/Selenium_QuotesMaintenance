@@ -18,16 +18,12 @@ public class BasePage {
     private static final int POLLING = 100;
 
     protected WebDriver myDriver;
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.myDriver = driver;
         wait = new WebDriverWait(driver, TIMEOUT, POLLING);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
-    }
-
-    protected WebDriverWait genericWait(){
-    return this.wait;
     }
 
     protected void waitForElementToDisappear(By locator) {
@@ -46,12 +42,12 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected void waitForLabelToDisappear (WebElement element){
+    protected void waitForLabelToDisappear(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
-  //      wait.until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(locator)));
+        //      wait.until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(locator)));
     }
 
-    protected void waitForLabelToFadesOut (WebElement element){
+    protected void waitForLabelToFadesOut(WebElement element) {
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
     }
 
