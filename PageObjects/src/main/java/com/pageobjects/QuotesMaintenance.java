@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.concurrent.TimeUnit;
-
 public class QuotesMaintenance extends BasePage {
 
     String url = "https://www-5e843a9176ebdb7f82181e05.recruit.eb7.io/";
@@ -77,6 +75,7 @@ public class QuotesMaintenance extends BasePage {
         try {
             waitForElementToBeLoaded(searchQuoteTxt);
             searchQuoteTxt.sendKeys(phrase);
+            searchQuoteTxt.submit();
             waitForElementToDisappear(By.xpath(spinLoading));
         } catch (IllegalMonitorStateException e) {
             e.wait(10000);
@@ -94,7 +93,7 @@ public class QuotesMaintenance extends BasePage {
     public void editQuote (String author, String phrase){
         waitForElementToBeLoaded(recoveredQuoteBox);
         recoveredQuoteBox.click();
-        waitForElementToBeLoaded(editAuthorTxt);
+        waitForElementToBeSelected(editAuthorTxt);
         editAuthorTxt.sendKeys(author);
         editQuoteTxt.sendKeys(phrase);
         saveEditBtn.click();

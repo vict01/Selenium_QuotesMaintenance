@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
 import java.util.List;
 
 public class QuotesSourcePage extends BasePage {
@@ -29,7 +28,7 @@ public class QuotesSourcePage extends BasePage {
         author = gideonQuotesList.get(i).getText();
         int index = author.indexOf(":");
         boolean isThereLimit = index > 0;
-        author = author.substring(0, isThereLimit ? index : author.length());
+        author = author.substring(0, isThereLimit ? index : author.length()-1);
         return author;
     }
 
